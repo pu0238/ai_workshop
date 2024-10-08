@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "ai_workshop_hf_backend": {
+      "candid": "src/ai_workshop_hf_backend/ai_workshop_hf_backend.did",
+      "package": "ai_workshop_hf_backend",
+      "type": "rust"
+    },
+    "ai_workshop_hf_frontend": {
+      "dependencies": [
+        "ai_workshop_hf_backend"
+      ],
+      "source": [
+        "src/ai_workshop_hf_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "ai_workshop_hf_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
