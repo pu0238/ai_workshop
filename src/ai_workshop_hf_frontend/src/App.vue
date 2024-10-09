@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { ai_workshop_hf_backend } from 'declarations/ai_workshop_hf_backend/index';
-let greeting = ref('');
+let translatedText = ref('');
 
 async function handleSubmit(e) {
   e.preventDefault();
   const target = e.target;
-  const name = target.querySelector('#name').value;
-  await ai_workshop_hf_backend.greet(name).then((response) => {
-    greeting.value = response;
+  const tralslation = target.querySelector('#tralslation').value;
+  await ai_workshop_hf_backend.translate_req(tralslation).then((response) => {
+    translatedText.value = response;
   });
 }
 </script>
@@ -19,10 +19,10 @@ async function handleSubmit(e) {
     <br />
     <br />
     <form action="#" @submit="handleSubmit">
-      <label for="name">Enter your name: &nbsp;</label>
-      <input id="name" alt="Name" type="text" />
+      <label for="tralslation">Enter your text to tralslate: &nbsp;</label>
+      <input id="tralslation" alt="tralslation" type="text" />
       <button type="submit">Click Me!</button>
     </form>
-    <section id="greeting">{{ greeting }}</section>
+    <section id="translatedText">{{ translatedText }}</section>
   </main>
 </template>
